@@ -1,0 +1,85 @@
+class Personagem{
+  String _nome, _classe, _raca;
+  
+  //construtor
+  Personagem(this._nome, this._classe,this._raca);
+  
+  //gets e sets
+  
+  String getNome(){
+    return this._nome;
+  }
+  
+  void setNome(String nome){
+    this._nome=nome;
+  }   
+  
+  String getClasse(){
+    return this._classe;
+    }
+  
+  void setClasse(String classe){
+    this._classe=classe;
+  }
+  
+  String getRaca(){
+    return this._raca;
+  }
+  
+  void setRaca(String raca){
+    this._raca=raca;
+  }
+  
+  //Outros Metodos
+  
+  String atacar(){
+    return "$_nome Atacou";
+  } 
+  
+  String andar(String andar){
+    if(andar=="w"){
+      return "$_nome Pulou";
+    }
+    if(andar=="d"){
+      return "$_nome Andou para direita";
+    }
+    if(andar=="a"){
+      return "$_nome Andou para esquerda";
+    }
+    if(andar=="d"){
+      return "$_nome Abaixou";
+    }
+    return "Parado";
+  }
+  
+  String toString(){
+    return "$_nome, $_classe,$_raca";
+  }
+  
+  bool equals(Personagem personagem){
+   
+    bool retorno = false;
+     
+    if(this._nome == personagem.getNome() && this._classe == personagem.getClasse() &&
+      this._raca== personagem.getRaca()){
+      
+      retorno = true;
+    }
+    return retorno;
+  }
+  
+ }
+
+void main(){
+  
+  Personagem igor = new Personagem("Igor", "Mago", "Elfo");
+  
+  print(igor.toString());
+  
+  print(igor.atacar());
+  
+  print(igor.andar("w"));
+  
+  print(igor.andar("d"));
+  
+}
