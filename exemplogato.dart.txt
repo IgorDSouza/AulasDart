@@ -1,0 +1,89 @@
+﻿class Gato{
+  //atributo
+  String _nome,_raca,_cor;
+  int _idade;
+
+  //construtor
+  Gato(this._nome, this._raca,this._cor,this._idade);
+  
+  //gets e sets
+  String getNome(){
+    return this._nome;
+  }
+  void setNome(String nome){
+    this._nome= nome;
+  }
+  String getRaca(){
+   return this._raca ;
+  }
+  void setRaca(String raca){
+    this._raca = raca;
+  }
+  String getCor(){
+    return this._cor;
+  }
+  void setCor(String cor){
+    this._cor = cor;
+  }
+  int getIdade(){
+    return this._idade;
+  }
+  void setIdade(int idade){
+    this._idade = idade;
+  }
+  //Demais metodos
+  String miar(){
+    return  "$_nome : miauu";
+  }
+  String ronronar(){
+  return "$_nome : prrrrrrrr";
+  }
+  String dormir(){
+    return "$_nome : zzzzzzz";
+  }
+  String comer(){
+    return "$_nome : nhomnhomnhom";
+  }
+  String fazerXixi(){
+    return "$_nome : shhhhh";
+  }
+  String fazerCoco(){
+    return "$_nome : ploft";
+  }
+         
+  String toString(){
+    return "Nome :$_nome Raça: $_raca Nome Dono: $_cor Idade : $_idade" ; 
+  }
+  
+  bool equals(Gato gato){
+  
+    bool retorno = false;
+    
+    if(this._nome == gato.getNome() &&
+      this._raca == gato.getRaca() &&
+      this._cor == gato.getCor()&&
+      this._idade == gato.getIdade())
+    {
+      retorno = true;      
+  }
+    return retorno;
+  }
+}
+ void main(){
+   Gato miau1 = new Gato("Miau1","Persa","Marrom", 10);
+   Gato miau2 = new  Gato("Miau2","Frajola","Amarelo", 5);
+  print(miau1.toString());
+  print(miau2.toString());
+  print(miau1.miar());
+  print(miau1.ronronar());
+  print(miau1.dormir());
+  print(miau1.comer());
+  print(miau1.fazerXixi());
+  print(miau1.fazerCoco());
+   print(miau2.miar());
+  print(miau2.ronronar());
+  print(miau2.dormir());
+  print(miau2.comer());
+  print(miau2.fazerXixi());
+  print(miau2.fazerCoco());
+}

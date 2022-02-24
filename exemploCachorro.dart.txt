@@ -1,0 +1,65 @@
+﻿class Cachorro{
+  //atributo
+  String _nome,_raca,_nomeDono;
+
+  //construtor
+  Cachorro(this._nome, this._raca,this._nomeDono);
+  
+  //gets e sets
+  String getNome(){
+    return this._nome;
+  }
+  void setNome(String nome){
+    this._nome= nome;
+  }
+  String getRaca(){
+   return this._raca ;
+  }
+  void setRaca(String raca){
+    this._raca = raca;
+  }
+  String getNomeDono(){
+    return this._nomeDono;
+  }
+  void setNomeDono(String nomeDono){
+    this._nomeDono = nomeDono;
+  }
+  
+  //Demais metodos
+  String fazerCoco(){
+    return  "$_nome : plof";
+  }
+  String latir(){
+  return "$_nome : auau";
+  }
+  String morder(){
+    return "$_nome : grr";
+  }
+  String toString(){
+    return "Nome :$_nome Raça: $_raca Nome Dono: $_nomeDono"; 
+  }
+  
+  bool equals(Cachorro cachorro){
+  
+    bool retorno = false;
+    
+    if(this._nome == cachorro.getNome() &&
+      this._raca == cachorro.getRaca() &&
+      this._nomeDono == cachorro.getNomeDono())
+    {
+      retorno = true;      
+  }
+    return retorno;
+  }
+}
+ void main(){
+   Cachorro toto = new Cachorro("Totó","SRD","Jão");
+  Cachorro fifi = new Cachorro("Fifi","Poodle Toy","Tchana");
+  print(toto.toString());
+  print(toto.latir());
+  print(toto.equals(fifi));
+  print(toto.fazerCoco());
+  print(fifi.morder());
+  print(toto.morder());
+}
+ 

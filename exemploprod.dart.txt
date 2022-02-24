@@ -1,0 +1,84 @@
+﻿class Produto{
+  String _nome, _codigoBarra;
+  double _precoVenda;
+  int _quantidadeEstoque;
+  
+  // construtor
+  Produto(this._nome,this._codigoBarra,this._precoVenda,this._quantidadeEstoque);
+  
+  //gets e sets
+  String getnome(){
+    return this._nome;
+  }
+  void setnome(String nome){
+    this._nome = nome;
+  }
+  String getCodBarra(){
+    return this._codigoBarra;
+  }
+  void setCodBarra(String codigob){
+    this._codigoBarra = codigob;
+  }
+  double getPrecoVenda(){
+    return this._precoVenda;
+  }
+  void setPrecoVenda(double precov){
+    this._precoVenda = precov;
+  }
+  int getQuantidadeEstoque(){
+    return this._quantidadeEstoque;
+  }
+  void setQuantidadeEstoque(int qtdest){
+    this._quantidadeEstoque = qtdest;
+  }
+  
+  // Metodos
+  comprar(int qtd){
+    if(qtd > 0){
+       _quantidadeEstoque = _quantidadeEstoque + qtd;
+      return true;
+    }else{
+      return false;
+    }   
+  }
+  
+  vender(int qtd){
+    if(qtd > 0 && qtd <= _quantidadeEstoque){
+      _quantidadeEstoque =_quantidadeEstoque - qtd;
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+  String getValorEstoque(){
+    double preco=_quantidadeEstoque*_precoVenda;
+    return  "O valor de todo estoque é de $preco";
+  }
+  
+  String toString(){
+    return "Produto = $_nome, Codigo de Barra = $_codigoBarra,Preco = $_precoVenda, Quantidade em estoque = $_quantidadeEstoque ";
+  }
+
+  bool equals(Produto produto){
+  
+    bool retorno = false;
+    
+    if(this._nome == produto.getnome() && this._codigoBarra == produto.getCodBarra() && this._precoVenda == produto.getPrecoVenda() && this._quantidadeEstoque == produto.getQuantidadeEstoque() )
+    {
+      retorno = true;      
+  }
+    return retorno;
+  }
+}
+ void main(){
+   Produto prod1 = new Produto("Livro","2545784",52.60,20);
+   print(prod1.toString());
+   prod1.comprar(5);
+   print(prod1.toString());
+   prod1.vender(15);
+   print(prod1.toString());
+   print(prod1.getValorEstoque());
+   
+}
+ 
