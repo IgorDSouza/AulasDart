@@ -33,22 +33,22 @@
   }
   
   // Metodos
-  comprar(int qtd){
+  bool comprar(int qtd){
+    bool retorno = false;
     if(qtd > 0){
        _quantidadeEstoque = _quantidadeEstoque + qtd;
       return true;
-    }else{
-      return false;
-    }   
+    }
+    return retorno;
   }
   
-  vender(int qtd){
+  bool vender(int qtd){
+    bool retorno = false;
     if(qtd > 0 && qtd <= _quantidadeEstoque){
       _quantidadeEstoque =_quantidadeEstoque - qtd;
       return true;
-    }else{
-      return false;
     }
+    return retorno;
   }
   
   String getValorEstoque(){
@@ -74,9 +74,7 @@
  void main(){
    Produto prod1 = new Produto("Livro","2545784",52.60,20);
    print(prod1.toString());
-   prod1.comprar(5);
-   print(prod1.toString());
-   prod1.vender(15);
+   print(prod1.vender(22));
    print(prod1.toString());
    print(prod1.getValorEstoque());
    
