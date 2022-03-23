@@ -1,0 +1,47 @@
+class ContaCorrente{
+  static double _saldobanco=0.0;
+  double _saldoConta=0.0;
+  
+  // construtor
+  ContaCorrente();
+  
+  // metodos
+  double getSaldoConta(){
+    return _saldoConta;
+  }
+  
+ bool deposita(double valor){
+   bool retorno=false;
+   
+   if(valor>0){
+     _saldoConta+=valor;
+     _saldobanco+=valor;
+     retorno=true;
+   }
+   return retorno;
+ }
+  
+ bool retira(double valor){
+   bool retorno = false;
+   
+   if(valor<this._saldoConta){
+     _saldoConta -= valor;
+     _saldobanco -= valor;
+     retorno=true;
+   }
+   return retorno;
+ }
+  
+  static double getSaldoBanco(){
+    return _saldobanco;
+  }
+}
+
+void main(){
+  ContaCorrente conta1 = new ContaCorrente();
+  ContaCorrente conta2 = new ContaCorrente();
+  ContaCorrente conta3 = new ContaCorrente();
+  ContaCorrente conta4 = new ContaCorrente();
+
+  print(ContaCorrente.getSaldoBanco());
+}
