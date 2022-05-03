@@ -1,0 +1,95 @@
+FLUTTER
+
+Material design = padronização para design 
+
+
+------Estrutura de programa Flutter-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import 'package:flutter/material.dart';
+
+void main(){
+	runApp(MaterialApp(
+		home:
+	));
+}
+
+-----------------Containers-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+São componentes que permitem incluir widgets
+
+existem as classes:
+-Coluna(Column);
+-linha (Row);
+-Container(pode ser colocado em qualquer widget do flutter)
+
+-------------Coluna----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import 'package:flutter/material.dart';
+void main(){
+	runApp(MaterialApp(
+      home: Column(children:<Widget>[
+	Text("Hello"),
+	Text("World!"),
+	Text("Igor")
+	 ]),
+	));
+}
+------------Linha--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import 'package:flutter/material.dart';
+void main(){
+	runApp(MaterialApp(
+      home: Row(children:<Widget>[
+	Text("Hello"),
+	Text("World!"),
+	Text("Igor")
+	 ]),
+	));
+}
+------ Estilos Text--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import 'package:flutter/material.dart';
+void main(){
+	runApp(MaterialApp(
+      home: Column(children:<Widget>[
+	Text("Hello", style: TextStyle(fontStyle: FontStyle.italic, fontWeight: Fontweight.bold, fontSize: 100, color:Colors.red)),
+	 ]),
+	));
+}
+--------aula 26/04 -------------------------------------------------------------------------------------------------------------------------------------------------------
+import 'package:flutter/material.dart';
+void main(){
+	runApp(MaterialApp(
+      home: Column(children:<Widget>[
+    Row(children:<Widget>[
+         Text("    Inicio ",style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 50, color:Colors.white,decoration:TextDecoration.none)),
+         Text("      Cadastrar-se", style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 50, color:Colors.white,decoration:TextDecoration.none)),
+      Text("          [X]", style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 50, color:Colors.red,decoration:TextDecoration.none)),
+        ]),
+      Text(" "),
+        Text("Facebook",style: TextStyle(decoration:TextDecoration.none, color:Colors.white,fontWeight: FontWeight.bold, fontSize:60)),
+        Text(" "),
+        Text("Usuário",style: TextStyle(decoration:TextDecoration.none, color:Colors.white)),
+        Text("_______________________ ",style: TextStyle(decoration:TextDecoration.none, color:Colors.blue)),
+        Text("Senha",style: TextStyle(decoration:TextDecoration.none, color:Colors.white)),
+        Text("_______________________ ",style: TextStyle(decoration:TextDecoration.none, color:Colors.blue)),  
+         Text(" "),
+        Text("Login",style: TextStyle(decoration:TextDecoration.none, color:Colors.white,fontSize:60)),
+        
+]),
+	));
+}
+-------- Criação de "banner" com flutter -------------------------------------------------------------------------------------------------------------------------------------------------------
+import 'package:flutter/material.dart';
+void main(){
+	runApp(MaterialApp(
+      home: Column(children:<Widget>[
+Text("AUTO ESCOLA ISACADA", style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, fontSize: 65, color:Colors.greenAccent,decoration:TextDecoration.none)),
+Text(" "),
+Text("Habilitação A e B por apenas",style: TextStyle(fontSize:35, decoration:TextDecoration.none,color:Colors.white)),
+Text(" "),
+Text(" 🤑 RS 1.199,90!! 🤑 ",style: TextStyle(fontSize:85, decoration:TextDecoration.none, color:Colors.yellow) ),
+Text("Em 12X sem juros!! ",style: TextStyle(fontSize:35, decoration:TextDecoration.none,color:Colors.yellow) ),
+Text(" "),
+Text("A melhor auto escola da região de Sumaré! ",style: TextStyle(fontSize:35, decoration:TextDecoration.none, color:Colors.white)),
+       
+  ]),
+	));
+}
