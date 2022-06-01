@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+      home: Home(),
+   ));
+}      
+ 
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  TextEditingController _numero1 = TextEditingController();
+  TextEditingController _numero2 = TextEditingController();
+  String _resultado="";
+  
+  
+  void _soma() {
+    setState(() {
+      _resultado = (double.parse(_numero1.text) + double.parse(_numero2.text)).toString();
+    });
+  }
+   void _subtracao() {
+    setState(() {
+      _resultado = (double.parse(_numero1.text) - double.parse(_numero2.text)).toString();
+    });
+  }
+   void _divisao() {
+    setState(() {
+      _resultado = (double.parse(_numero1.text) / double.parse(_numero2.text)).toString();
+    });
+  }
+   void _mult() {
+    setState(() {
+      _resultado = (double.parse(_numero1.text) * double.parse(_numero2.text)).toString();
+    });
+  }
+  void _limpa(){
+    setState((){
+      _resultado = "";
+      _numero1.text = "";
+      _numero2.text = ""; 
+    });
+  }
+  
+  Widget build(BuildContext context) {
+     return Scaffold(
+          appBar: AppBar(
+              title:Center(child:Text("Exemplo Borda em Container")),
+              backgroundColor: Colors.amberAccent
+          ),
+          body: Column( children: <Widget> [
+                    Padding(padding:EdgeInsets.fromLTRB(0,20,0,0),child:Icon(Icons.calculate,size:100.0,color: Colors.brown)),
+                    
+                    Padding(padding:EdgeInsets.all(30), 
+                            child:TextField(keyboardType:TextInputType.number, 
+                                            maxLength:4, 
+                                            decoration: InputDecoration(labelText:"Digite um número",
+                                                                        labelStyle: TextStyle(color: Colors.black),
+                                                                        border: OutlineInputBorder(),),
+                                            controller: _numero1,
+                                           )
+                           ),
+
+            Padding(padding:EdgeInsets.fromLTRB(30,0,30,30),
+                    child:TextField(keyboardType:TextInputType.number,
+                                    maxLength:4,
+                                    decoration: InputDecoration(labelText:"Digite outro número",
+                                                                labelStyle: TextStyle(color: Colors.black),
+                                                                border: OutlineInputBorder(),),
+                                    controller: _numero2,
+                                   )
+                   ),
+           Row( mainAxisAlignment:MainAxisAlignment.spaceEvenly, children: <Widget> [ 
+             
+             Padding(padding:EdgeInsets.fromLTRB(0,0,0,0),child:RaisedButton(color:Colors.cyan,
+                         padding:EdgeInsets.fromLTRB(30,20,30,20),
+                         child: Text("+", style: TextStyle(fontSize:15,color:Colors.white)),
+                         onPressed:_soma)),
+             Padding(padding:EdgeInsets.fromLTRB(0,0,0,0),child:RaisedButton(color:Colors.cyan,
+                         padding:EdgeInsets.fromLTRB(30,20,30,20),
+                         child: Text("-", style: TextStyle(fontSize:15,color:Colors.white)),
+                         onPressed:_subtracao)),
+             Padding(padding:EdgeInsets.fromLTRB(0,0,0,0),child:RaisedButton(color:Colors.cyan,
+                         padding:EdgeInsets.fromLTRB(30,20,30,20),
+                         child: Text("/", style: TextStyle(fontSize:15,color:Colors.white)),
+                         onPressed:_divisao)),
+             Padding(padding:EdgeInsets.fromLTRB(0,0,0,0),child:RaisedButton(color:Colors.cyan,
+                         padding:EdgeInsets.fromLTRB(30,20,30,20),
+                         child: Text("X", style: TextStyle(fontSize:15,color:Colors.white)),
+                         onPressed:_mult)),]),
+            
+            Padding(padding:EdgeInsets.fromLTRB(0,50,0,0),child: RaisedButton(color:Colors.red,
+                         padding:EdgeInsets.fromLTRB(30,20,30,20),
+                         child: Text("LIMPA", style: TextStyle(fontSize:15,color:Colors.white)),
+                         onPressed:_limpa)),
+            Padding(padding:EdgeInsets.fromLTRB(0,20,0,0),
+              child:Text(_resultado,
+              textAlign: TextAlign.center,
+              style: TextStyle(color:Colors.red, fontSize: 25.0))
+                    )
+          ]),
+      );
+  }
+}
